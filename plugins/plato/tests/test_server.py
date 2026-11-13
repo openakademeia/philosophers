@@ -24,6 +24,6 @@ def test_initialize_carries_the_banner_and_icon():
 
     info, instructions = asyncio.run(handshake())
 
-    assert info.name == "openacademy-plato"
+    assert info.name == "openakademeia-plato"
     assert info.icons[0].src.startswith("data:image/png;base64,")
     assert "P L A T O" in instructions

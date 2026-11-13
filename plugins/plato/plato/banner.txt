@@ -24,4 +24,4 @@
                            +#@*
 
                  P L A T O
-                openacademy
+               openakademeia

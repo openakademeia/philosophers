@@ -2,7 +2,7 @@
   "mcpServers": {
     "plato": {
       "command": "uvx",
-      "args": ["--from", "git+https://github.com/openakademeia/philosophers#subdirectory=plugins/plato", "openacademy-plato"]
+      "args": ["--from", "git+https://github.com/openakademeia/philosophers#subdirectory=plugins/plato", "openakademeia-plato"]
     }
   }
 }

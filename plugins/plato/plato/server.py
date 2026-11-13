@@ -1,4 +1,4 @@
-"""Plato MCP server: five tools over the openacademy API, with the teaching protocol as instructions."""
+"""Plato MCP server: five tools over the openakademeia API, with the teaching protocol as instructions."""
 
 import base64
 from pathlib import Path
@@ -41,7 +41,7 @@ def icon() -> Icon:
 
 
 def build_server(client: PlatoClient | None = None) -> MCPServer:
-    server = MCPServer("openacademy-plato", title="Plato", instructions=instructions_text(), icons=[icon()])
+    server = MCPServer("openakademeia-plato", title="Plato", instructions=instructions_text(), icons=[icon()])
     state: dict[str, PlatoClient | None] = {"client": client}
 
     def plato() -> PlatoClient:
@@ -49,7 +49,7 @@ def build_server(client: PlatoClient | None = None) -> MCPServer:
             state["client"] = connect()
         return state["client"]
 
-    @server.tool(description="List every course in the openacademy catalog with its field, subfield, id, and tier.")
+    @server.tool(description="List every course in the openakademeia catalog with its field, subfield, id, and tier.")
     def list_courses() -> list[dict]:
         return plato().list_courses()
 

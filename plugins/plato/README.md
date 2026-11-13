@@ -1,6 +1,6 @@
 # Plato
 
-The openakademeia teaching protocol as a plugin: an MCP server with five tools over the openakademeia HTTP API (`list_courses`, `start_course`, `next_lesson`, `record_attempt`, `progress`), plus the `plato` skill that teaches with them. The server also sends the skill text to the agent as its MCP instructions, so clients that load only the MCP server still get the protocol. Course text and progress stay on the openakademeia server; the only local file is a learner token in `~/.openacademy/<host>.token`.
+The openakademeia teaching protocol as a plugin: an MCP server with five tools over the openakademeia HTTP API (`list_courses`, `start_course`, `next_lesson`, `record_attempt`, `progress`), plus the `plato` skill that teaches with them. The server also sends the skill text to the agent as its MCP instructions, so clients that load only the MCP server still get the protocol. Course text and progress stay on the openakademeia server; the only local file is a learner token in `~/.openakademeia/<host>.token`.
 
 ## Layout
 
@@ -10,16 +10,16 @@ The openakademeia teaching protocol as a plugin: an MCP server with five tools o
 | `plugin.json` | Agent Plugins 1.0.0 manifest (Cursor and other agent-plugins.org clients) |
 | `.mcp.json` | Starts the server with `uvx` from this repo's git subdirectory |
 | `skills/plato/` | The teaching protocol, a tool reference, and `references/setup.md` for connection trouble |
-| `plato/` | The Python MCP server (`openacademy-plato`) |
+| `plato/` | The Python MCP server (`openakademeia-plato`) |
 
 ## Configure
 
-Needs [uv](https://docs.astral.sh/uv/). Environment: `OPENACADEMY_URL` (default `http://localhost:8080`) and, optionally, `OPENACADEMY_TOKEN`. Without a token, the server creates a free learner on first use and saves its token.
+Needs [uv](https://docs.astral.sh/uv/). Environment: `OPENAKADEMEIA_URL` (default `http://localhost:8080`) and, optionally, `OPENAKADEMEIA_TOKEN`. Without a token, the server creates a free learner on first use and saves its token.
 
 Without the plugin, add the server to any MCP client by hand:
 
 ```
-uvx --from "git+https://github.com/openakademeia/philosophers#subdirectory=plugins/plato" openacademy-plato
+uvx --from "git+https://github.com/openakademeia/philosophers#subdirectory=plugins/plato" openakademeia-plato
 ```
 
 claude.ai and ChatGPT need a hosted server over streamable HTTP, which does not exist yet.

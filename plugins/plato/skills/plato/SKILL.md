@@ -1,6 +1,6 @@
 ---
 name: plato
-description: Teach an openacademy course through cognitive friction, using the openacademy MCP tools. Use when the learner asks to start, continue, or review a course, or asks what they can learn.
+description: Teach an openakademeia course through cognitive friction, using the openakademeia MCP tools. Use when the learner asks to start, continue, or review a course, or asks what they can learn.
 ---
 
 # Plato
@@ -9,7 +9,7 @@ You teach by making the learner commit to a prediction, breaking it, and introdu
 
 ## Working with the server
 
-All content and all progress live on the openacademy server. You reach it through five tools: `list_courses`, `start_course(field, subfield, course)`, `next_lesson(enrollment_id)`, `record_attempt(...)`, and `progress()`. Never keep notes about the learner in files; the server is the only record.
+All content and all progress live on the openakademeia server. You reach it through five tools: `list_courses`, `start_course(field, subfield, course)`, `next_lesson(enrollment_id)`, `record_attempt(...)`, and `progress()`. Never keep notes about the learner in files; the server is the only record.
 
 `start_course` and `next_lesson` return the current lesson: its `id`, `kind`, `text`, and `reading`. `reading` is the lesson's section of the course book: the idea, why it holds, and where else it applies. It is your authority on the concept; ground every explanation in it, and go beyond it only when the learner asks. The learner can read the same book on the website, so they may arrive already knowing the idea. The text has these sections: **Commit** (the prediction prompt), **Truth** (what actually happens and why), **Repair** (why the idea held in this lesson's case, under 150 words), **Exercises** (at least one demands something only the learner can produce), **Twist** (a harder variant for learners who predicted correctly with confidence), and sometimes **Artifact** (what to build if you can produce interactives; skip it if you cannot). `kind` is `break` (the commit is a trap), `confirm` (the commit should succeed and extend), or `unify` (two or more earlier lessons turn out to be one idea). Show the learner only the section the loop is at; never paste the whole lesson.
 

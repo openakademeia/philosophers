@@ -1,4 +1,4 @@
-"""HTTP client for the openacademy Plato API; owns the learner token."""
+"""HTTP client for the openakademeia Plato API; owns the learner token."""
 
 import os
 from pathlib import Path
@@ -6,7 +6,7 @@ from pathlib import Path
 import httpx
 
 DEFAULT_URL = "http://localhost:8080"
-DEFAULT_TOKEN_DIR = Path.home() / ".openacademy"
+DEFAULT_TOKEN_DIR = Path.home() / ".openakademeia"
 
 
 class PlatoError(Exception):
@@ -22,7 +22,7 @@ class PlatoClient:
     def __init__(self, http: httpx.Client, token_path: Path):
         self.http = http
         self.token_path = token_path
-        self.token = os.environ.get("OPENACADEMY_TOKEN") or self._load_or_create_token()
+        self.token = os.environ.get("OPENAKADEMEIA_TOKEN") or self._load_or_create_token()
 
     def _load_or_create_token(self) -> str:
         if self.token_path.exists():
@@ -108,5 +108,5 @@ class PlatoClient:
 
 
 def connect(url: str | None = None) -> PlatoClient:
-    base = url or os.environ.get("OPENACADEMY_URL", DEFAULT_URL)
+    base = url or os.environ.get("OPENAKADEMEIA_URL", DEFAULT_URL)
     return PlatoClient(httpx.Client(base_url=base, timeout=30), default_token_path(base))
