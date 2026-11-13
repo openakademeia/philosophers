@@ -63,11 +63,11 @@ def build_server(client: PlatoClient | None = None, fetch_protocol: Callable[[],
     def list_courses() -> list[dict]:
         return plato().list_courses()
 
-    @server.tool(description="Enroll the learner in a course, or resume it, and return the next lesson with its full text and its section of the course book.")
+    @server.tool(description="Enroll the learner in a course, or resume it, and return the next lesson with its full text and the concept it teaches from the course book.")
     def start_course(field: str, subfield: str, course: str) -> dict:
         return plato().start_course(field, subfield, course)
 
-    @server.tool(description="Return the next unfinished lesson of an enrollment with its full text and its section of the course book, or done: true.")
+    @server.tool(description="Return the next unfinished lesson of an enrollment with its full text and the concept it teaches from the course book, or done: true.")
     def next_lesson(enrollment_id: int) -> dict:
         return plato().next_lesson(enrollment_id)
 

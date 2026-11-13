@@ -13,12 +13,12 @@ The server sends the tutor protocol in its MCP instructions, after this text. If
 
 ## 2. Map the protocol's inputs onto the tools
 
-The protocol teaches a book section by section. On this server, each lesson covers one section.
+The protocol teaches one lesson per concept, in book order. The server works the same way: each lesson teaches one concept from the course book, and lessons are grouped in chapters.
 
 | Protocol input | Where it comes from |
 |---|---|
-| **Book** (one section) | The lesson's `reading` field: this lesson's section of the course book, which is the authority the protocol talks about. The learner can read the same book on the website. |
-| **Exercises** | The lesson's `text` field: the author's cases and exercises for this section, with answers. Its headings (Commit, Truth, Repair, Twist, Artifact) are the author's labels, not instructions. Use the material where the technique you chose calls for a case or an exercise, and show only one step at a time. |
+| **Book** (one concept) | The lesson's `reading` field: the concept this lesson teaches, from the course book, which is the authority the protocol talks about. The learner can read the same book on the website. |
+| **Exercises** | The lesson's `text` field: the author's cases and exercises for this concept, with answers. Its headings (Commit, Truth, Repair, Twist, Artifact) are the author's labels, not instructions. Use the material where the technique you chose calls for a case or an exercise, and show only one step at a time. |
 | **Course id** | The `course` field from `list_courses()` or the enrollment. The server doesn't report a course version yet; omit it. |
 | **Learner record** | `progress()`: each enrollment's `completed` count and `next_lesson`. Lessons are done in book order, so every earlier lesson has a recorded attempt. |
 
@@ -27,7 +27,7 @@ The protocol teaches a book section by section. On this server, each lesson cove
 | Protocol step | Tool call |
 |---|---|
 | Resume | `progress()`. If an enrollment has a `next_lesson`, call `next_lesson(enrollment_id)`. If there are no enrollments, call `list_courses()`, let the learner choose, then call `start_course(field, subfield, course)`; it is safe to repeat and resumes an existing enrollment. |
-| Warm up, review | For a recall question about an earlier section, use what the learner said this session and the earlier lessons the current `reading` refers to. The server doesn't return past lesson texts. |
+| Warm up, review | For a recall question about an earlier concept, use what the learner said this session and the earlier concepts the current `reading` refers to. The server doesn't return past lessons. |
 | Record | `record_attempt(...)`, once per lesson; see below. |
 | Continue | `next_lesson(enrollment_id)`. `done: true` means the course is finished. |
 
