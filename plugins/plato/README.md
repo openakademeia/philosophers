@@ -1,6 +1,6 @@
 # Plato
 
-The openakademeia teaching protocol as a plugin: an MCP server with five tools over the openakademeia HTTP API (`list_courses`, `start_course`, `next_lesson`, `record_attempt`, `progress`), plus the `plato` skill that teaches with them. The server also sends the skill text to the agent as its MCP instructions, so clients that load only the MCP server still get the protocol. Course text and progress stay on the openakademeia server; the only local file is a learner token in `~/.openakademeia/<host>.token`.
+An openakademeia tutor as a plugin. Its teaching method is the [OpenPedagogy](https://github.com/openakademeia/openpedagogy) tutor protocol, fetched from `PROTOCOL.md` on GitHub; its content is the openakademeia course book. The MCP server exposes `pedagogy_protocol` plus five tools over the openakademeia HTTP API (`list_courses`, `start_course`, `next_lesson`, `record_attempt`, `progress`). The `plato` skill maps the protocol onto those tools and adds no method of its own. The server sends the skill and the protocol as its MCP instructions, so clients that load only the MCP server get both. Course text and progress stay on the openakademeia server; the only local file is a learner token in `~/.openakademeia/<host>.token`.
 
 ## Layout
 
@@ -9,12 +9,12 @@ The openakademeia teaching protocol as a plugin: an MCP server with five tools o
 | `.claude-plugin/plugin.json` | Claude Code and Codex manifest |
 | `plugin.json` | Agent Plugins 1.0.0 manifest (Cursor and other agent-plugins.org clients) |
 | `.mcp.json` | Starts the server with `uvx` from this repo's git subdirectory |
-| `skills/plato/` | The teaching protocol, a tool reference, and `references/setup.md` for connection trouble |
-| `plato/` | The Python MCP server (`openakademeia-plato`) |
+| `skills/plato/` | How to run the protocol over the tools, and `references/setup.md` for connection trouble |
+| `plato/` | The Python MCP server (`openakademeia-plato`); `pedagogy.py` fetches the protocol |
 
 ## Configure
 
-Needs [uv](https://docs.astral.sh/uv/). Environment: `OPENAKADEMEIA_URL` (default `http://localhost:8080`) and, optionally, `OPENAKADEMEIA_TOKEN`. Without a token, the server creates a free learner on first use and saves its token.
+Needs [uv](https://docs.astral.sh/uv/). Environment: `OPENAKADEMEIA_URL` (default `http://localhost:8080`), optionally `OPENAKADEMEIA_TOKEN`, and optionally `OPENPEDAGOGY_PROTOCOL_URL` to pin or override the protocol (default: `PROTOCOL.md` on openpedagogy's `main`). Without a token, the server creates a free learner on first use and saves its token.
 
 Without the plugin, add the server to any MCP client by hand:
 
