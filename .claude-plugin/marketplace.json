@@ -1,0 +1,15 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "philosophers",
+  "description": "openakademeia teaching agents for Claude Code, Codex, and Cursor",
+  "owner": {
+    "name": "openakademeia"
+  },
+  "plugins": [
+    {
+      "name": "plato",
+      "source": "./plugins/plato",
+      "description": "Learn an openakademeia course by prediction and repair: the Plato MCP server plus the skill that teaches with it"
+    }
+  ]
+}
