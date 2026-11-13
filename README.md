@@ -8,7 +8,7 @@ openakademeia teaching agents, packaged as plugins for Claude Code, Codex, and C
 
 ## Install
 
-- **Claude Code**: `/plugin install plato --marketplace openakademeia/philosophers`
+- **Claude Code**: `/plugin marketplace add openakademeia/philosophers`, then `/plugin install plato@philosophers`
 - **Codex**: `codex plugin marketplace add openakademeia/philosophers && codex plugin add plato@philosophers`
 - **Cursor**: add `https://github.com/openakademeia/philosophers` as a plugin marketplace
 

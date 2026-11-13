@@ -27,7 +27,8 @@ claude.ai and ChatGPT need a hosted server over streamable HTTP, which does not 
 Install it from this repo's marketplace:
 
 ```
-/plugin install plato --marketplace openakademeia/philosophers
+/plugin marketplace add openakademeia/philosophers
+/plugin install plato@philosophers
 ```
 
 Codex and Cursor steps are in the [root README](../../README.md#install). Then say "Start a course."
