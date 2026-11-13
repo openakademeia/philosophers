@@ -1,0 +1,14 @@
+{
+  "name": "philosophers",
+  "owner": {
+    "name": "openakademeia"
+  },
+  "description": "openakademeia teaching agents for Claude Code, Codex, and Cursor",
+  "plugins": [
+    {
+      "name": "plato",
+      "source": "./plugins/plato",
+      "description": "Learn an openakademeia course by prediction and repair: the Plato MCP server plus the skill that teaches with it"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "plato",
+  "version": "0.1.0",
+  "description": "Learn an openakademeia course by prediction and repair: the Plato MCP server plus the skill that teaches with it",
+  "author": {
+    "name": "openakademeia"
+  },
+  "repository": "https://github.com/openakademeia/philosophers",
+  "license": "MIT",
+  "keywords": ["learning", "tutor", "mcp", "openakademeia"]
+}
